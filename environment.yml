@@ -1,0 +1,47 @@
+# Name of the environment
+name: polyphemus
+
+# Channels to search for packages
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+  - nvidia
+
+# Dependencies for the environment
+dependencies:
+  # Python version
+  - python=3.9
+  # Package manager
+  - pip
+  # SSL certificates
+  - ca-certificates
+  - certifi
+  - openssl
+  # Git package from GitHub
+  - git:
+    - git+https://github.com/TimDettmers/bitsandbytes.git@0.38.0
+  # Jupyter kernel
+  - ipykernel
+  # CUDA toolkit version
+  - cudatoolkit=11.8
+  # Pytest for testing
+  - pytest
+  # PyTorch and related packages
+  - pytorch
+  - torchaudio
+  - torchvision
+  - accelerate
+  # Other packages
+  - appdirs
+  - loralib
+  - bitsandbytes
+  - black
+  - black-jupyter
+  - datasets
+  - fire
+  - peft=0.3.0
+  - transformers>=4.28.0
+  - sentencepiece
+  - gradio
+  - scipy
