@@ -35,7 +35,6 @@ dependencies:
   # Other packages
   - appdirs
   - loralib
-  - bitsandbytes
   - black
   - black-jupyter
   - datasets
