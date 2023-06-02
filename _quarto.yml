@@ -2,5 +2,7 @@ project:
   type: website
   output-dir: docs
 
+execute:
+  freeze: auto
 
 
