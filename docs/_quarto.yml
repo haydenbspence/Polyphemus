@@ -36,4 +36,4 @@ website:
         menu:
           - text: "FAQ"
             icon: "question-circle"
-            href: docs/faq/index.html
+            href: faq/index.html
