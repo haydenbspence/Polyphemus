@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://haydenbspence.github.io/Polyphemus/CODE_OF_CONDUCT.html</loc>
-    <lastmod>2023-06-02T20:04:52.441Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haydenbspence.github.io/Polyphemus/CONTRIBUTING.html</loc>
-    <lastmod>2023-06-02T20:04:52.706Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haydenbspence.github.io/Polyphemus/docs/index.html</loc>
-    <lastmod>2023-06-02T20:04:52.953Z</lastmod>
-  </url>
-  <url>
-    <loc>https://haydenbspence.github.io/Polyphemus/test.html</loc>
-    <lastmod>2023-06-02T20:04:53.188Z</lastmod>
+    <loc>https://haydenbspence.github.io/Polyphemus/index.html</loc>
+    <lastmod>2023-06-02T20:12:26.736Z</lastmod>
   </url>
 </urlset>
