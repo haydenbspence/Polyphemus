@@ -4,7 +4,21 @@
     "href": "background/index.html",
     "title": "Background",
     "section": "",
-    "text": "Timeline\nThis is an answer"
+    "text": "By displaying\n\n\n\n\nEvents from February 24, 2023 to April 15, 2023\n\n\nDate\nEvent\nSignificance\n\n\n\n\n2023-02-24\nMeta launches Large Language Model Meta AI (LLaMA) and open sources code without model weights.\n\n\n\n2023-03-03\nLLaMA weights are leaked and shared via torrent on the internet.\n\n\n\n2023-03-12\nArtem Andreenko is able to get LLaMA working the a Raspberry Pi\n\n\n\n2023-03-13\nStanford releases Alpaca, the first minimal working example of fine-tuning LLaMA\n\n\n\n2023-03-14\nEric Wang releases Alpaca-LoRA\n\n\n\n2023-03-18\n\n\n\n\n2023-03-19\nVicuna\n~$300\n\n\n2023-03-25\nNomic releases GPT4All\n\n\n\n2023-03-03\nCerebras uses μ-parameterization\n\n\n\n2023-03-28\nLLaMA-Adapter uses Parameter Efficient Fine Tuning (PEFT)\n\n\n\n2023-04-03\nKoala\n\n\n\n2023-04-15\nOpen Assistant https://drive.google.com/file/d/10iR5hKwFqAKhL3umx8muOWSRm7hs5FqX/view\n$100\n\n\n\n\n\n\n\n\n\nDate\nEvent\nSignificance\n\n\n\n\n\nLangChain\nA library to assist in the development of data-aware agentic LLM applications by including multiple LLMs combined with other sources of information. Examples include Q&A over specific documents, databases, or APIs; chatbots that can reason before responding; agents that have control over system environments to perform tasks.\n\n\n\nLLamaIndex\n\n\n\n\nGPTCache\n\n\n\n\nLocalAI\n\n\n\n\nPandasAI"
+  },
+  {
+    "objectID": "background/index.html#the-dawn-of-open-source-ai",
+    "href": "background/index.html#the-dawn-of-open-source-ai",
+    "title": "Background",
+    "section": "",
+    "text": "Events from February 24, 2023 to April 15, 2023\n\n\nDate\nEvent\nSignificance\n\n\n\n\n2023-02-24\nMeta launches Large Language Model Meta AI (LLaMA) and open sources code without model weights.\n\n\n\n2023-03-03\nLLaMA weights are leaked and shared via torrent on the internet.\n\n\n\n2023-03-12\nArtem Andreenko is able to get LLaMA working the a Raspberry Pi\n\n\n\n2023-03-13\nStanford releases Alpaca, the first minimal working example of fine-tuning LLaMA\n\n\n\n2023-03-14\nEric Wang releases Alpaca-LoRA\n\n\n\n2023-03-18\n\n\n\n\n2023-03-19\nVicuna\n~$300\n\n\n2023-03-25\nNomic releases GPT4All\n\n\n\n2023-03-03\nCerebras uses μ-parameterization\n\n\n\n2023-03-28\nLLaMA-Adapter uses Parameter Efficient Fine Tuning (PEFT)\n\n\n\n2023-04-03\nKoala\n\n\n\n2023-04-15\nOpen Assistant https://drive.google.com/file/d/10iR5hKwFqAKhL3umx8muOWSRm7hs5FqX/view\n$100"
+  },
+  {
+    "objectID": "background/index.html#the-era-of-democratized-ai",
+    "href": "background/index.html#the-era-of-democratized-ai",
+    "title": "Background",
+    "section": "",
+    "text": "Date\nEvent\nSignificance\n\n\n\n\n\nLangChain\nA library to assist in the development of data-aware agentic LLM applications by including multiple LLMs combined with other sources of information. Examples include Q&A over specific documents, databases, or APIs; chatbots that can reason before responding; agents that have control over system environments to perform tasks.\n\n\n\nLLamaIndex\n\n\n\n\nGPTCache\n\n\n\n\nLocalAI\n\n\n\n\nPandasAI"
   },
   {
     "objectID": "faq/index.html",
