@@ -1,6 +1,8 @@
-# Polyphemus
+---
+title: "The Polyphemus Project"
+---
 
-## Introduction
+# Introduction
 
 The infamous Cyclops, Polyphemus, the son of Poseidon in Greek mythology, met his downfall due to the cunning of the hero, Odysseus. When asked for his name, Odysseus cleverly responded with 'Nobody.' Unable to pinpoint the culprit behind his blinding, Polyphemus could not seek revenge, his actions limited to hurling a boulder aimlessly into the sea. It wasn't until Odysseus revealed his true name that the cyclops was able to enlist his father Poseidon's divine wrath, highlighting the power of a name.
 
