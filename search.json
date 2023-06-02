@@ -1,8 +1,15 @@
 [
   {
+    "objectID": "background/index.html",
+    "href": "background/index.html",
+    "title": "Background",
+    "section": "",
+    "text": "Timeline\nThis is an answer"
+  },
+  {
     "objectID": "faq/index.html",
     "href": "faq/index.html",
-    "title": "Background",
+    "title": "FAQ",
     "section": "",
     "text": "Timeline\nThis is an answer"
   },
