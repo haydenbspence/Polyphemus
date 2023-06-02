@@ -26,14 +26,12 @@ Active areas of development include the following:
 
 - Dissemination and Outreach
 
-## Pull Requests
+## Contribution Guidelines
 
-1. Fork the repo and create your branch from `main`.
-2. If you've added code that should be tested, add tests.
-3. If you've changed APIs, update the documentation.
-4. Ensure the test suite passes.
-5. Make sure your code lints. (Python code should use Pylint)
-6. If you haven't already, complete the Contributor License Agreement ("CLA").
+- Sign the Contributor License Agreement ("CLA").
+- Fork the repo and create your branch from `main`.
+- If you've added code that should be tested, add tests.
+- Ensure all tests pass.
 
 ## Contributor License Agreement ("CLA")
 
