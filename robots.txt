@@ -1,1 +1,1 @@
-Sitemap: https://haydenbspence.github.io/Polyphemus/sitemap.xml
+Sitemap: https://github.com/haydenbspence/Polyphemus/sitemap.xml
