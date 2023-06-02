@@ -5,7 +5,7 @@ Contributions are welcome.
 Active areas of development include the following:
 
 - Documentation
-
+- 
 - Data Collation and Quality Control
 
 - Data Governance and AI Ethics
@@ -26,6 +26,17 @@ Active areas of development include the following:
 
 - Dissemination and Outreach
 
+## Pull Requests
+
+1. Fork the repo and create your branch from `main`.
+2. If you've added code that should be tested, add tests.
+3. If you've changed APIs, update the documentation.
+4. Ensure the test suite passes.
+5. Make sure your code lints. (Python code should use Pylint)
+6. If you haven't already, complete the Contributor License Agreement ("CLA").
+
+## Contributor License Agreement ("CLA")
+
 
 # Authorship and Acknowledgements
 
@@ -36,3 +47,6 @@ Contributors that sign a [Contributor Agreement]() are included in acknowledgeme
 [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html).
 
 
+## License
+By contributing to Polyphemus, you agree that your contributions will be licensed
+under the LICENSE file in the root directory of this source tree.
