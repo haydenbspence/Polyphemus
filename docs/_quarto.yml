@@ -32,8 +32,14 @@ website:
     background: dark
     collapse-below: lg
     left:
+      - text: "Background"
+        href: background/index.html
+      - text: "Models"
+        href: models/index.html
+      - text: "References"
+        href: References/index.html
       - text: "Help"
         menu:
-          - text: "FAQ"
-            icon: "question-circle"
-            href: faq/index.html
+        - text: "FAQ"
+          icon: "question-circle"
+          href: faq/index.html
