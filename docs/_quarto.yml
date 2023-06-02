@@ -32,10 +32,8 @@ website:
     background: dark
     collapse-below: lg
     left:
-      - text: "Overview"
-        href: index.qmd
       - text: "Help"
         menu:
           - text: "FAQ"
             icon: "question-circle"
-            href: docs/faq/index.qmd
+            href: docs/faq/index.html
