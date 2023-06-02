@@ -11,3 +11,4 @@ Similarly, in the world of systems integration, the naming of objects is crucial
 The importance of naming extends to the realm of artificial intelligence (AI) systems. Large Language Models (LLMs) such as GPT-3, the driving force behind ChatGPT and OpenAI's API, exemplify this. These models can perform tasks but lack the ability to recognize specific names within specialized knowledge domains. This limitation hampers their wider application, especially in fields such as observational medical research.
 
 Introducing Polyphemus, a network of specialty-trained Large Language Models (LLMs), designed to overcome this limitation. Polyphemus models can not only act but also identify object names within their specialized domain. This project, a collaborative effort between the Observational Health Data Sciences and Informatics (OHDSI) community and Polyphemus, focuses on the exploration of LLMs' application in open science and observational medical research.
+
