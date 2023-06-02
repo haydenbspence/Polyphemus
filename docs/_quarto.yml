@@ -18,15 +18,9 @@ website:
       - text: "FAQ"
         href: docs/faq/index.qmd
     right:
-      - icon: twitter
-        href: https://google.com
-        aria-label: Polyphemus Twitter
       - icon: github
         href: https://google.com
         aria-label: Polyphemus GitHub
-      - icon: rss
-        href: https://google.com
-        aria-label: Polyphemus Blog RSS
 
   navbar:
     background: dark
@@ -37,8 +31,6 @@ website:
       - text: "Models"
         href: models/index.html
       - text: "References"
-        href: References/index.html
-      - text: "Help"
         menu:
         - text: "FAQ"
           icon: "question-circle"
