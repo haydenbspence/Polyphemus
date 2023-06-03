@@ -1,0 +1,36 @@
+---
+title: "Definitions and Abbreviations"
+---
+
+| Term                                               | Abbreviation | Definition |
+|----------------------------------------------------|--------------|------------|
+| Observational Health Data Sciences and Informatics | OHDSI        |            |
+| Observational Medical Outcomes Partnership         | OMOP         |            |
+| Artificial Intelligence                            | AI           |            |
+|                                                    |              |            |
+|                                                    |              |            |
+|                                                    |              |            |
+|                                                    |              |            |
+|                                                    |              |            |
+
+LLaMA - Large Language Model Meta AI
+
+fLLM - Foundational Large Language Model
+
+LLM - Large Language Model
+
+API - Application Program Interface
+
+SOTA - State of the Art
+
+RLHF - Real Life Human Feedback
+
+PALM - Pretrained Autoencoding Language Model
+
+GPT - Generative Pretrained Transformer
+
+MWE - Minimum Working Example
+
+MRE - Minimum Reproducible Example
+
+MVP - Minimum Viable Product
