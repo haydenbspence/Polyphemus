@@ -1,6 +1,6 @@
 # Polyphemus 
 
-:warning: **In Development, No Approved Releases as of 2023-06-03** :warning:
+:warning: **In Development, No Approved Releases as of 2023-06-03**
 
 Polyphemus is a collection of specialty trained Large Language Models (LLMs) for use in applications to support observational health informatics and data science. 
 
