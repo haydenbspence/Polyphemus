@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/haydenbspence/Polyphemus/about/index.html</loc>
-    <lastmod>2023-06-03T21:57:14.833Z</lastmod>
+    <lastmod>2023-06-03T22:07:11.271Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/haydenbspence/Polyphemus/background/index.html</loc>
-    <lastmod>2023-06-03T21:57:16.757Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/haydenbspence/Polyphemus/faq/defs.html</loc>
-    <lastmod>2023-06-03T21:57:17.449Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/haydenbspence/Polyphemus/faq/index.html</loc>
-    <lastmod>2023-06-03T21:57:17.729Z</lastmod>
+    <lastmod>2023-06-03T22:07:12.243Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/haydenbspence/Polyphemus/index.html</loc>
-    <lastmod>2023-06-03T21:57:18.033Z</lastmod>
+    <lastmod>2023-06-03T22:07:12.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/haydenbspence/Polyphemus/references/acknowledgements.html</loc>
+    <lastmod>2023-06-03T22:07:13.119Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/haydenbspence/Polyphemus/references/defs.html</loc>
+    <lastmod>2023-06-03T22:07:13.739Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/haydenbspence/Polyphemus/references/index.html</loc>
+    <lastmod>2023-06-03T22:07:13.995Z</lastmod>
   </url>
 </urlset>
