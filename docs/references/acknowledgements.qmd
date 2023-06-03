@@ -1,0 +1,10 @@
+---
+title: "Acknowledgements"
+---
+
+# Acknowledgements
+
+
+
+
+[Georgi Gerganov](https://github.com/ggerganov) for thier work on llama.cpp

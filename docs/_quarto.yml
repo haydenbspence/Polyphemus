@@ -34,6 +34,6 @@ website:
         menu:
         - text: "FAQ"
           icon: "question-circle"
-          href: faq/index.qmd
+          href: references/index.qmd
         - text: "Definitions"
-          href: faq/defs.qmd
+          href: references/defs.qmd
