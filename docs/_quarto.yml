@@ -14,9 +14,9 @@ website:
   page-footer:
     center:
       - text: "About"
-        href: about.qmd
+        href: about/index.qmd
       - text: "FAQ"
-        href: docs/faq/index.qmd
+        href: faq/index.qmd
     right:
       - icon: github
         href: https://google.com
@@ -27,11 +27,11 @@ website:
     collapse-below: lg
     left:
       - text: "Background"
-        href: background/index.html
+        href: background/index.qmd
       - text: "Models"
-        href: models/index.html
+        href: models/index.qmd
       - text: "References"
         menu:
         - text: "FAQ"
           icon: "question-circle"
-          href: faq/index.html
+          href: faq/index.qmd
