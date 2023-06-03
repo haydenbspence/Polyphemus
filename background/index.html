@@ -93,6 +93,10 @@ ul.task-list li input[type="checkbox"] {
 </i> 
  <span class="dropdown-text">FAQ</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../faq/defs.html" rel="" target="">
+ <span class="dropdown-text">Definitions</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -127,56 +131,59 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Large Language Models (LLMs) represent a cutting-edge advancement in the field of artificial intelligence, specifically within natural language processing (NLP). These models are designed to understand and generate human-like text, exhibiting an impressive capacity for language comprehension and creation. Built on the principles of machine learning, LLMs, like OpenAI’s GPT-3 or GPT-4, are trained on vast amounts of data, allowing them to predict and generate coherent and contextually appropriate responses. From enhancing user experiences in chatbots, to generating content, and assisting with language translation, LLMs are revolutionizing how we interact with technology, offering an increasingly nuanced interface that blends AI sophistication with the complexities of human language.</p>
+</section>
 <section id="timeline" class="level1">
 <h1>Timeline</h1>
-<p>By displaying<br>
+<p>Our objective in presenting this timeline of events is to highlight the swift progress and growing democratization in the field of open-source AI and application of LLMs. In doing so, we hope to demonstrate the feasibility and opportunities for applications in the area of health informatics and data science. This timeline primarily focuses on open-source technologies and open-science research that have practical, working examples, rather than emphasizing cutting-edge institutional research breakthroughs or proprietary advancements.<br>
 </p>
-<section id="the-dawn-of-open-source-ai" class="level2">
-<h2 class="anchored" data-anchor-id="the-dawn-of-open-source-ai">The Dawn of Open Source AI</h2>
 <table class="table">
-<caption>Events from February 24, 2023 to April 15, 2023</caption>
 <thead>
 <tr class="header">
 <th>Date</th>
 <th>Event</th>
-<th>Significance</th>
+<th>Significance and Implications</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td>2022-10-17</td>
+<td><p><a href="https://github.com/hwchase17/langchain/blob/master/CITATION.cff">Chase Harrison releases LangChain</a>, a python library that assists in the development of applications that combine LLMs and other sources of knowledge.</p>
+<p>“We believe that the most powerful and differentiated applications will not only call out to a language model, but will also be <em>Data-aware</em> and <em>Agentic</em>.</p></td>
+<td>LangChain lowers the barrier to integrating disparate sources and discrete LLMs. This allows for interdisciplinary and more sophisticated networking of data sources and LLMs.</td>
+</tr>
+<tr class="even">
 <td>2023-02-24</td>
 <td><a href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/">Meta launches Large Language Model Meta AI (LLaMA) and open sources code without model weights.</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2023-03-03</td>
-<td><a href="https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama">LLaMA weights are leaked and shared via torrent on the internet.</a></td>
-<td></td>
+<td>Meta’s decision to release all of the source code for their AI, while withholding the weights, does illustrate a degree of commitment to open-source principles among major tech firms. However, the exclusion of the weights from this release signifies a cautious approach, emphasizing the proprietary value that these weights contribute to the effectiveness of LLMs.</td>
 </tr>
 <tr class="odd">
-<td>2023-03-12</td>
-<td><a href="https://github.com/ggerganov/llama.cpp/issues/58">Artem Andreenko is able to get LLaMA working the a Raspberry Pi</a></td>
-<td></td>
+<td>2023-03-03</td>
+<td><a href="https://web.archive.org/web/20230603194841/https://www.vice.com/en/article/xgwqgw/facebooks-powerful-large-language-model-leaks-online-4chan-llama">LLaMA weights are leaked and shared via torrent on the internet.</a></td>
+<td>The leak of Meta’s LLaMA weights raises the potential of misuse of AI technology, disrupts the control and security of this technology, highlights legal issues. Importantly, it also spurs AI research and development by universities and open-source communities.</td>
 </tr>
 <tr class="even">
+<td>2023-03-12</td>
+<td><a href="https://github.com/ggerganov/llama.cpp/issues/58">Artem Andreenko is able to get LLaMA working the a Raspberry Pi</a></td>
+<td><p>Andreenko’s report of being able to run LLaMA on inexpensive consumer-level hardware like the Raspberry Pi 4 demonstrates the potential for the democratization of AI. High-end resources present a barrier to who can implement, and especially who can fine-tune, LLMs. Lowering this barrier means localized solutions, hobbyist tinkering, and innovation will involve a broader segment of the population.</p>
+<p>Although the implementation of LLMs on this level of hardware is slow and impractical for the majority of use-cases, the energy efficiency aspect is also promising as AI tends to have high energy consumption.</p></td>
+</tr>
+<tr class="odd">
 <td>2023-03-13</td>
 <td><a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">Stanford releases Alpaca, the first minimal working example of fine-tuning LLaMA</a></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2023-03-14</td>
 <td>Eric Wang releases <a href="https://github.com/tloen/alpaca-lora">Alpaca-LoRA</a></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>2023-03-18</td>
-<td></td>
-<td></td>
-</tr>
 <tr class="odd">
 <td>2023-03-19</td>
-<td><a href="https://lmsys.org/blog/2023-03-30-vicuna/">Vicuna</a></td>
-<td>~$300</td>
+<td>The <a href="https://lmsys.org/blog/2023-03-30-vicuna/">Vicuna</a> project trained a model on high-quality ChatGPT dialogues sourced from sites such as <a href="https://sharegpt.com/">ShareGPT</a>.</td>
+<td>Cost of Training: ~$300</td>
 </tr>
 <tr class="even">
 <td>2023-03-25</td>
@@ -185,68 +192,73 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>2023-03-03</td>
-<td>Cerebras uses <a href="https://arxiv.org/abs/2203.03466">μ-parameterization</a></td>
+<td><a href="https://www.cerebras.net/">Cerebras</a> trained the GPT-3 architecture using the optimal compute schedule implied by Chinchilla and the optimal scaling implied by <a href="https://arxiv.org/abs/2203.03466">μ-parameterization</a>. This marked the first example of a model that outperformed GPT-3 and was trained from scratch. Consequently, the open source community gained full access to two fLLMs that rival GPT4 and PaLM2.</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2023-03-28</td>
-<td>LLaMA-Adapter uses Parameter Efficient Fine Tuning (PEFT)</td>
+<td>LLaMA-Adapter uses Parameter Efficient Fine Tuning (PEFT), the project introduced instruction tuning and multimodality in a mere hour of training, establishing a new state-of-the-art (SOTA) for Science Q&amp;A.</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2023-04-03</td>
-<td><a href="https://bair.berkeley.edu/blog/2023/04/03/koala/">Koala</a></td>
-<td></td>
+<td>The <a href="https://bair.berkeley.edu/blog/2023/04/03/koala/">Koala</a> project released a model trained on open source data. When evaluated against ChatGPT with human subjects, over 50% of users either preferred Koala responses or expressed no preference between the two. The training cost was approximately $100.</td>
+<td>Cost of Training: ~$100</td>
 </tr>
 <tr class="even">
 <td>2023-04-15</td>
-<td>Open Assistant https://drive.google.com/file/d/10iR5hKwFqAKhL3umx8muOWSRm7hs5FqX/view</td>
-<td>$100</td>
+<td>The Open Assistant project launched a <a href="https://arxiv.org/pdf/2304.07327.pdf">model and dataset</a>for Alignment via Real Life Human Feedback (RLHF). Their model closely competed with ChatGPT in terms of human preference (48.3% vs.&nbsp;51.7%). The dataset could also be applied to Pythia-12B, and a complete open-source technology stack was provided to run the model. This publicly available dataset made RLHF feasible for individual users.</td>
+<td>Cost of Training: ~$100</td>
 </tr>
-</tbody>
-</table>
-</section>
-<section id="the-era-of-democratized-ai" class="level2">
-<h2 class="anchored" data-anchor-id="the-era-of-democratized-ai">The Era of Democratized AI</h2>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Event</th>
-<th>Significance</th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td></td>
-<td><a href="https://github.com/hwchase17/langchain">LangChain</a></td>
-<td>A library to assist in the development of data-aware agentic LLM applications by including multiple LLMs combined with other sources of information. Examples include Q&amp;A over specific documents, databases, or APIs; chatbots that can reason before responding; agents that have control over system environments to perform tasks.</td>
-</tr>
-<tr class="even">
 <td></td>
 <td><a href="https://github.com/jerryjliu/llama_index">LLamaIndex</a></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>GPTCache</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>LocalAI</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>PandasAI</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>GPT-Q for LLaMA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Large Language Model Activation-aware Weight Quantization (LLM-AWQ)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Microsoft Guidance</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Simple-LLM-Finetuner</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>The Paper <a href="https://arxiv.org/pdf/2304.03442.pdf"><em>Generative Agents: Interactive Simulacra of Human Behavior</em></a>is implemented by <a href="https://quangbk.github.io/">Pham Tran Minh Quang</a> using LangChain and uploaded to GitHub (<a href="https://github.com/QuangBK/generativeAgent_LLM">generativeAgent_LLM</a>) with an accompanying <a href="https://betterprogramming.pub/implement-generative-agent-with-local-llm-guidance-and-langchain-full-features-fa57655f3de1">article</a>.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
