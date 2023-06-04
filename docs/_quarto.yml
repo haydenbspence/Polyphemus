@@ -37,3 +37,5 @@ website:
           href: references/index.qmd
         - text: "Definitions"
           href: references/defs.qmd
+      - text: "Blog"
+        href: blog/index.qmd
