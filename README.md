@@ -1,12 +1,14 @@
-# Polyphemus 
+# Polyphemus :eye:
 
 :warning: **In Development, No Approved Releases as of 2023-06-03**
 
-Polyphemus is a collection of specialty trained Natural Language Models for use in applications to support observational health informatics and data science. The collection primarily focuses on Large Language Models (LLMs) that are fine-tuned to specific functional areas. The collection is named after the Greek mythological figure [Polyphemus](https://en.wikipedia.org/wiki/Polyphemus), the cyclops that was blinded by Odysseus. You can learn more about Polyphemus, The Polyphemus Project, and the collection in the [documentation](https://haydenbspence.github.io/Polyphemus).
+Polyphemus is a framework for the coordination of specialty trained Natural Language Models for use in applications to support observational health informatics and data science. The collection primarily focuses on Large Language Models (LLMs) that are fine-tuned to specific functional areas. The collection is named after the Greek mythological figure [Polyphemus](https://en.wikipedia.org/wiki/Polyphemus), the cyclops that was blinded by Odysseus. You can learn more about Polyphemus, The Polyphemus Project, and the collection of models in the [documentation](https://haydenbspence.github.io/Polyphemus).
+
+We also have a thread on the OHDSI forums [here](https://forums.ohdsi.org/t/the-polyphemus-project-call-for-contributors/19061/4).
 
 ## Table of Contents
 
-- [Polyphemus](#polyphemus)
+- [Polyphemus :eye:](#polyphemus-eye)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Installation](#installation)
