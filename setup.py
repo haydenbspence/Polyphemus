@@ -1,6 +1,6 @@
 """
 Polyphemus is a network of specialty trained LLMs for use in applications to support observational research.
-    Copyright (C) 2023  Hayden Spence
+    Copyright (C) 2023 Hayden Spence
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published

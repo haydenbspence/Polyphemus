@@ -1,0 +1,19 @@
+[project]
+
+name = 'polyphemus'
+description = ''
+authors = [
+    {name = 'Hayden Spence', email = 'N/A', github = 'https://github.com/haydenbspence'}
+]
+license = 'AGPL-3.0'
+classifiers = [
+    'Development Status :: 1 - Planning',
+    'Programming Language :: Python',
+]
+
+[project.urls]
+Homepage = 'https://github.com/haydenbspence/polyphemus'
+Documentation = 'https://haydenbspence.github.io/Polyphemus/'
+Funding = 'https://github.com/sponsors/haydenbspence'
+Source = 'https://github.com/haydenbspence/polyphemus'
+Changelog = 'https://haydenbspence.github.io/Polyphemus/changes'
