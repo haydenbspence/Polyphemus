@@ -1,6 +1,6 @@
-# Old code and drafts
+# Old code and experimental code
+experimental/
 old/
-draft/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
