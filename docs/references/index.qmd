@@ -1,7 +1,0 @@
----
-title: "FAQ"
----
-
-### This is a question?
-
-This is an answer \

@@ -3,7 +3,7 @@ on:
   push:
     branches: main
 
-name: Quarto Publish
+name: Poetry Check
 
 jobs:
   build-deploy:
@@ -11,16 +11,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          path: docs/
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Poetry
+        run: |
+          apt-get update && apt-get install --no-install-recommends -y curl build-essential
+          curl -sSL https://install.python-poetry.org | python3 -
+          source $HOME/.poetry/env
+      - name: Check Poetry
+        run: |
+          poetry check
+          poetry install
