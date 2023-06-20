@@ -18,5 +18,6 @@ jobs:
           source $HOME/.poetry/env
       - name: Check Poetry
         run: |
+          poetry config virtualenvs.in-project true
           poetry check
           poetry install
