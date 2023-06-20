@@ -1,0 +1,14 @@
+---
+engine: knitr
+---
+
+```{r}
+sessionInfo()
+Sys.getenv()
+.libPaths()
+
+# If the sessioninfo package is available, 
+# it provides output that is easier to read,
+# and can write its results to a file
+sessioninfo:::session_info(to_file = "quarto-session-info-output.txt")
+```

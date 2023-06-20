@@ -1,19 +1,24 @@
-[project]
-
-name = 'polyphemus'
-description = ''
-authors = [
-    {name = 'Hayden Spence', email = 'N/A', github = 'https://github.com/haydenbspence'}
-]
-license = 'AGPL-3.0'
-classifiers = [
-    'Development Status :: 1 - Planning',
-    'Programming Language :: Python',
-]
-
 [project.urls]
 Homepage = 'https://github.com/haydenbspence/polyphemus'
 Documentation = 'https://haydenbspence.github.io/Polyphemus/'
 Funding = 'https://github.com/sponsors/haydenbspence'
 Source = 'https://github.com/haydenbspence/polyphemus'
 Changelog = 'https://haydenbspence.github.io/Polyphemus/changes'
+
+[tool.poetry]
+name = 'polyphemus'
+version = '0.1.0'
+description = ''
+authors = ['Hayden Spence']
+readme='README.md'
+packages=[{include = 'polyphemus'}]
+
+[tool.poetry.dependencies]
+python = '^3.10'
+fastapi = '>=0.68.0,<0.69.0'
+pydantic = '>=1.8.0,<2.0.0'
+uvicorn = '>=0.15.0,<0.16.0'
+
+[build-system]
+requires = ['poetry-core']
+build-backend = 'poetry.core.masonry.api'
