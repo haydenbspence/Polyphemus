@@ -5,7 +5,7 @@ Contributions are welcome.
 Active areas of development include the following:
 
 - Documentation
-- 
+
 - Data Collation and Quality Control
 
 - Data Governance and AI Ethics

@@ -1,0 +1,34 @@
+# Old code and experimental code
+experimental/
+old/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+.ENV/
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Compiled Python modules
+*.pyc
+
+# Dependency directories
+dist/
+build/
+*.egg-info/
+
