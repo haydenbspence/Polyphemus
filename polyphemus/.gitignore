@@ -32,3 +32,4 @@ dist/
 build/
 *.egg-info/
 
+config.toml

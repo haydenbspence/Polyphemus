@@ -1,133 +1,174 @@
-from datetime import datetime, date
-from pydantic import BaseModel, Field
+# models.py
+
+from pydantic import BaseModel, Field, ValidationError
 from typing import Optional
+from datetime import datetime, date
+
+def validate_dataframe(df):
+    df = df.apply(lambda row: Person(**row.to_dict()).model_dump(), axis=1)
+    return df
 
 class Person(BaseModel):
-    person_id: int = Field(..., alias='person_id')
-    gender_concept_id: int = Field(..., alias='gender_concept_id')
-    year_of_birth: int = Field(..., alias='year_of_birth')
-    month_of_birth: Optional[int] = None
-    day_of_birth: Optional[int] = None
-    birth_datetime: Optional[datetime] = None
-    race_concept_id: int
-    ethnicity_concept_id: int
-    location_id: Optional[int] = None
-    provider_id: Optional[int] = None
-    care_site_id: Optional[int] = None
-    person_source_value: str
-    gender_source_value: Optional[str] = None
-    gender_source_concept_id: Optional[int] = None
-    race_source_value: Optional[str] = None
-    race_source_concept_id: Optional[int] = None
-    ethnicity_source_value: Optional[str] = None
-    ethnicity_source_concept_id: Optional[int] = None
+    person_id: int = Field(..., alias='PERSON_ID')
+    gender_concept_id: int = Field(..., alias='GENDER_CONCEPT_ID')
+    year_of_birth: int = Field(..., alias='YEAR_OF_BIRTH')
+    month_of_birth: Optional[int] = Field(None, alias='MONTH_OF_BIRTH')
+    day_of_birth: Optional[int] = Field(None, alias='DAY_OF_BIRTH')
+    birth_datetime: Optional[datetime] = Field(None, alias='BIRTH_DATETIME')
+    race_concept_id: int = Field(..., alias='RACE_CONCEPT_ID')
+    ethnicity_concept_id: int = Field(..., alias='ETHNICITY_CONCEPT_ID')
+    location_id: Optional[int] = Field(None, alias='LOCATION_ID')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    care_site_id: Optional[int] = Field(None, alias='CARE_SITE_ID')
+    person_source_value: str = Field(..., alias='PERSON_SOURCE_VALUE')
+    gender_source_value: Optional[str] = Field(None, alias='GENDER_SOURCE_VALUE')
+    gender_source_concept_id: Optional[int] = Field(None, alias='GENDER_SOURCE_CONCEPT_ID')
+    race_source_value: Optional[str] = Field(None, alias='RACE_SOURCE_VALUE')
+    race_source_concept_id: Optional[int] = Field(None, alias='RACE_SOURCE_CONCEPT_ID')
+    ethnicity_source_value: Optional[str] = Field(None, alias='ETHNICITY_SOURCE_VALUE')
+    ethnicity_source_concept_id: Optional[int] = Field(None, alias='ETHNICITY_SOURCE_CONCEPT_ID')
 
-    class Config:
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
+class Person(BaseModel):
+    person_id: Optional[str] = Field(..., alias='PERSON_ID')
+    gender_concept_id: Optional[str] = Field(..., alias='GENDER_CONCEPT_ID')
+    year_of_birth: Optional[str] = Field(..., alias='YEAR_OF_BIRTH')
+    month_of_birth: Optional[str] = Field(..., alias='MONTH_OF_BIRTH')
+    day_of_birth: Optional[str] = Field(..., alias='DAY_OF_BIRTH')
+    birth_datetime: Optional[datetime] = Field(None, alias='BIRTH_DATETIME')
+    race_concept_id: Optional[str] = Field(..., alias='RACE_CONCEPT_ID')
+    ethnicity_concept_id: Optional[str] = Field(..., alias='ETHNICITY_CONCEPT_ID')
+    location_id: Optional[str] = Field(..., alias='LOCATION_ID')
+    provider_id: Optional[str] = Field(..., alias='PROVIDER_ID')
+    care_site_id: Optional[str] = Field(..., alias='CARE_SITE_ID')
+    person_source_value: Optional[str] = Field(..., alias='PERSON_SOURCE_VALUE')
+    gender_source_value: Optional[str] = Field(..., alias='GENDER_SOURCE_VALUE')
+    gender_source_concept_id: Optional[str] = Field(..., alias='GENDER_SOURCE_CONCEPT_ID')
+    race_source_value: Optional[str] = Field(..., alias='RACE_SOURCE_VALUE')
+    race_source_concept_id: Optional[str] = Field(..., alias='RACE_SOURCE_CONCEPT_ID')
+    ethnicity_source_value: Optional[str] = Field(..., alias='ETHNICITY_SOURCE_VALUE')
+    ethnicity_source_concept_id: Optional[str] = Field(..., alias='ETHNICITY_SOURCE_CONCEPT_ID')
 
 class ObservationPeriod(BaseModel):
-    observation_period_id: int
-    person_id: int
-    observation_period_start_date: date
-    observation_period_end_date: date
-    period_type_concept_id: int
+    observation_period_id: Optional[int] = Field(..., alias='OBSERVATION_PERIOD_ID')
+    person_id: Optional[int] = Field(..., alias='PERSON_ID')
+    observation_period_start_date: Optional[datetime] = Field(None, alias='OBSERVATION_PERIOD_START_DATE')
+    observation_period_end_date: Optional[datetime] = Field(None, alias='OBSERVATION_PERIOD_END_DATE')
+    period_type_concept_id: Optional[int] = Field(..., alias='PERIOD_TYPE_CONCEPT_ID')
 
 class VisitOccurrence(BaseModel):
-    visit_occurrence_id: int
-    person_id: int
-    visit_concept_id: int
-    visit_start_date: date
-    visit_start_datetime: Optional[datetime]
-    visit_end_date: date
-    visit_end_datetime: Optional[datetime]
-    visit_type_concept_id: int
-    provider_id: Optional[int]
-    care_site_id: Optional[int]
-    visit_source_value: Optional[str]
-    visit_source_concept_id: Optional[int]
-    admitted_from_concept_id: Optional[int]
-    admitted_from_source_value: Optional[str]
-    discharged_to_concept_id: Optional[int]
-    discharged_to_source_value: Optional[str]
-    preceding_visit_occurrence_id: Optional[int]
+    visit_occurrence_id: Optional[int] = Field(..., alias='VISIT_OCCURRENCE_ID')
+    person_id: Optional[int] = Field(..., alias='PERSON_ID')
+    visit_concept_id: Optional[int] = Field(..., alias='VISIT_CONCEPT_ID')
+    visit_start_date: Optional[datetime] = Field(None, alias='VISIT_START_DATE')
+    visit_start_datetime: Optional[datetime] = Field(None, alias='VISIT_START_DATETIME')
+    visit_end_date: Optional[datetime] = Field(None, alias='VISIT_END_DATE')
+    visit_end_datetime: Optional[datetime] = Field(None, alias='VISIT_END_DATETIME')
+    visit_type_concept_id: Optional[int] = Field(..., alias='VISIT_TYPE_CONCEPT_ID')
+    provider_id: Optional[int] = Field(..., alias='PROVIDER_ID')
+    care_site_id: Optional[int] = Field(..., alias='CARE_SITE_ID')
+    visit_source_value: Optional[str] = Field(..., alias='VISIT_SOURCE_VALUE')
+    visit_source_concept_id: Optional[int] = Field(..., alias='VISIT_SOURCE_CONCEPT_ID')
+    admitting_source_concept_id: Optional[int] = Field(..., alias='ADMITTING_SOURCE_CONCEPT_ID')
+    admitting_source_value: Optional[int] = Field(..., alias='ADMITTING_SOURCE_VALUE')
+    discharge_to_concept_id: Optional[int] = Field(..., alias='DISCHARGE_TO_CONCEPT_ID')
+    discharge_to_source_value: Optional[int] = Field(..., alias='DISCHARGE_TO_SOURCE_VALUE')
+    preceding_visit_occurrence_id: Optional[int] = Field(..., alias='PRECEDING_VISIT_OCCURRENCE_ID')
 
 class VisitDetail(BaseModel):
-    visit_detail_id: int
-    visit_occurrence_id: int
-    provider_id: Optional[int]
-    visit_start_date: date
-    visit_start_datetime: Optional[datetime]
-    visit_end_date: date
-    visit_end_datetime: Optional[datetime]
-    visit_type_concept_id: int
-    visit_source_value: Optional[str]
-    visit_source_concept_id: Optional[int]
-    admitting_source_concept_id: Optional[int]
-    admitting_source_value: Optional[str]
-    discharge_to_concept_id: Optional[int]
-    discharge_to_source_value: Optional[str]
-    preceding_visit_detail_id: Optional[int]
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    visit_detail_concept_id: Optional[int] = Field(None, alias='VISIT_DETAIL_CONCEPT_ID')
+    visit_detail_start_date: Optional[datetime] = Field(None, alias='VISIT_DETAIL_START_DATE')
+    visit_detail_start_datetime: Optional[datetime] = Field(None, alias='VISIT_DETAIL_START_DATETIME')
+    visit_detail_end_date: Optional[datetime] = Field(None, alias='VISIT_DETAIL_END_DATE')
+    visit_detail_end_datetime: Optional[datetime] = Field(None, alias='VISIT_DETAIL_END_DATETIME')
+    visit_detail_type_concept_id: Optional[int] = Field(None, alias='VISIT_DETAIL_TYPE_CONCEPT_ID')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    care_site_id: Optional[int] = Field(None, alias='CARE_SITE_ID')
+    admitting_source_concept_id: Optional[int] = Field(None, alias='ADMITTING_SOURCE_CONCEPT_ID')
+    discharge_to_concept_id: Optional[int] = Field(None, alias='DISCHARGE_TO_CONCEPT_ID')
+    preceding_visit_detail_id: Optional[int] = Field(None, alias='PRECEDING_VISIT_DETAIL_ID')
+    visit_detail_source_value: Optional[int] = Field(..., alias='VISIT_DETAIL_SOURCE_VALUE')
+    visit_detail_source_concept_id: Optional[int] = Field(None, alias='VISIT_DETAIL_SOURCE_CONCEPT_ID')
+    admitting_source_value: Optional[int] = Field(..., alias='ADMITTING_SOURCE_VALUE')
+    discharge_to_source_value: Optional[int] = Field(..., alias='DISCHARGE_TO_SOURCE_VALUE')
+    visit_detail_parent_id: Optional[int] = Field(None, alias='VISIT_DETAIL_PARENT_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
 
 class ConditionOccurrence(BaseModel):
-    condition_occurrence_id: int
-    person_id: int
-    condition_concept_id: int
-    condition_start_date: date
-    condition_start_datetime: Optional[datetime]
-    condition_end_date: date
-    condition_end_datetime: Optional[datetime]
-    condition_type_concept_id: int
-    stop_reason: Optional[str]
-    provider_id: Optional[int]
-    visit_occurrence_id: Optional[int]
-    visit_detail_id: Optional[int]
-    condition_source_value: Optional[str]
-    condition_source_concept_id: Optional[int]
-    condition_status_source_value: Optional[str]
-    condition_status_concept_id: Optional[int]
+    condition_occurrence_id: Optional[int] = Field(None, alias='CONDITION_OCCURRENCE_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    condition_concept_id: Optional[int] = Field(None, alias='CONDITION_CONCEPT_ID')
+    condition_start_date: Optional[datetime] = Field(None, alias='CONDITION_START_DATE')
+    condition_start_datetime: Optional[datetime] = Field(None, alias='CONDITION_START_DATETIME')
+    condition_end_date: Optional[datetime] = Field(None, alias='CONDITION_END_DATE')
+    condition_end_datetime: Optional[datetime] = Field(None, alias='CONDITION_END_DATETIME')
+    condition_type_concept_id: Optional[int] = Field(None, alias='CONDITION_TYPE_CONCEPT_ID')
+    stop_reason: Optional[str] = Field(..., alias='STOP_REASON')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    condition_source_value: Optional[str] = Field(..., alias='CONDITION_SOURCE_VALUE')
+    condition_source_concept_id: Optional[int] = Field(None, alias='CONDITION_SOURCE_CONCEPT_ID')
+    condition_status_source_value: Optional[str] = Field(..., alias='CONDITION_STATUS_SOURCE_VALUE')
+    condition_status_concept_id: Optional[int] = Field(None, alias='CONDITION_STATUS_CONCEPT_ID')
+    condition_occurrence_id: Optional[int] = Field(None, alias='CONDITION_OCCURRENCE_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    condition_concept_id: Optional[int] = Field(None, alias='CONDITION_CONCEPT_ID')
+    condition_start_date: Optional[datetime] = Field(None, alias='CONDITION_START_DATE')
+    condition_start_datetime: Optional[datetime] = Field(None, alias='CONDITION_START_DATETIME')
+    condition_end_date: Optional[datetime] = Field(None, alias='CONDITION_END_DATE')
+    condition_end_datetime: Optional[datetime] = Field(None, alias='CONDITION_END_DATETIME')
+    condition_type_concept_id: Optional[int] = Field(None, alias='CONDITION_TYPE_CONCEPT_ID')
+    stop_reason: Optional[str] = Field(..., alias='STOP_REASON')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    condition_source_value: Optional[str] = Field(..., alias='CONDITION_SOURCE_VALUE')
+    condition_source_concept_id: Optional[int] = Field(None, alias='CONDITION_SOURCE_CONCEPT_ID')
+    condition_status_source_value: Optional[str] = Field(..., alias='CONDITION_STATUS_SOURCE_VALUE')
+    condition_status_concept_id: Optional[int] = Field(None, alias='CONDITION_STATUS_CONCEPT_ID')
 
 class DrugExposure(BaseModel):
-    drug_exposure_id: int
-    person_id: int
-    drug_concept_id: int
-    drug_exposure_start_date: date
-    drug_exposure_start_datetime: Optional[datetime]
-    drug_exposure_end_date: date
-    drug_exposure_end_datetime: Optional[datetime]
-    verbatim_end_date: Optional[date]
-    drug_type_concept_id: int
-    stop_reason: Optional[str]
-    refills: Optional[int]
-    quantity: Optional[int]
-    days_supply: Optional[int]
-    sig: Optional[str]
-    route_concept_id: Optional[int]
-    lot_number: Optional[str]
-    provider_id: Optional[int]
-    visit_occurrence_id: Optional[int]
-    visit_detail_id: Optional[int]
-    drug_source_value: Optional[str]
-    drug_source_concept_id: Optional[int]
-    route_source_value: Optional[str]
-    dose_unit_source_value: Optional[str]
+    drug_exposure_id: Optional[int] = Field(None, alias='DRUG_EXPOSURE_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    drug_concept_id: Optional[int] = Field(None, alias='DRUG_CONCEPT_ID')
+    drug_exposure_start_date: Optional[datetime] = Field(None, alias='DRUG_EXPOSURE_START_DATE')
+    drug_exposure_start_datetime: Optional[datetime] = Field(None, alias='DRUG_EXPOSURE_START_DATETIME')
+    drug_exposure_end_date: Optional[datetime] = Field(None, alias='DRUG_EXPOSURE_END_DATE')
+    drug_exposure_end_datetime: Optional[datetime] = Field(None, alias='DRUG_EXPOSURE_END_DATETIME')
+    verbatim_end_date: Optional[datetime] = Field(None, alias='VERBATIM_END_DATE')
+    drug_type_concept_id: Optional[int] = Field(None, alias='DRUG_TYPE_CONCEPT_ID')
+    stop_reason: Optional[int] = Field(..., alias='STOP_REASON')
+    refills: Optional[int] = Field(..., alias='REFILLS')
+    quantity: Optional[int] = Field(..., alias='QUANTITY')
+    days_supply: Optional[int] = Field(..., alias='DAYS_SUPPLY')
+    sig: Optional[int] = Field(..., alias='SIG')
+    route_concept_id: Optional[int] = Field(None, alias='ROUTE_CONCEPT_ID')
+    lot_number: Optional[str] = Field(..., alias='LOT_NUMBER')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    drug_source_value: Optional[str] = Field(..., alias='DRUG_SOURCE_VALUE')
+    drug_source_concept_id: Optional[int] = Field(None, alias='DRUG_SOURCE_CONCEPT_ID')
+    route_source_value: Optional[int] = Field(..., alias='ROUTE_SOURCE_VALUE')
+    dose_unit_source_value: Optional[int] = Field(..., alias='DOSE_UNIT_SOURCE_VALUE')
 
 class ProcedureOccurrence(BaseModel):
-   procedure_occurrence_id: int
-   person_id: int
-   procedure_concept_id: int
-   procedure_date: date
-   procedure_datetime: Optional[datetime]
-   procedure_type_concept_id: int
-   modifier_concept_id: Optional[int]
-   quantity: Optional[int]
-   provider_id: Optional[int]
-   visit_occurrence_id: Optional[int]
-   visit_detail_id: Optional[int]
-   procedure_source_value: Optional[str]
-   procedure_source_concept_id: Optional[int]
-   qualifier_source_value: Optional[str]
+    procedure_occurrence_id: Optional[int] = Field(None, alias='PROCEDURE_OCCURRENCE_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    procedure_concept_id: Optional[int] = Field(None, alias='PROCEDURE_CONCEPT_ID')
+    procedure_date: Optional[datetime] = Field(None, alias='PROCEDURE_DATE')
+    procedure_datetime: Optional[datetime] = Field(None, alias='PROCEDURE_DATETIME')
+    procedure_type_concept_id: Optional[int] = Field(None, alias='PROCEDURE_TYPE_CONCEPT_ID')
+    modifier_concept_id: Optional[int] = Field(None, alias='MODIFIER_CONCEPT_ID')
+    quantity: Optional[int] = Field(..., alias='QUANTITY')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    procedure_source_value: Optional[str] = Field(..., alias='PROCEDURE_SOURCE_VALUE')
+    procedure_source_concept_id: Optional[int] = Field(None, alias='PROCEDURE_SOURCE_CONCEPT_ID')
+    modifier_source_value: Optional[int] = Field(..., alias='MODIFIER_SOURCE_VALUE')
 
 class DeviceExposure(BaseModel):
    device_exposure_id: int
