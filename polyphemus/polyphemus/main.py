@@ -5,10 +5,6 @@ import database
 app = FastAPI()
 schema_name = 'cdm'
 
-@app.on_event("startup")
-async def startup_event():
-    database.init_db(schema_name=schema_name)
-
 @app.post("/person/")
 async def create_person(person: Person):
     database.insert_person(person)

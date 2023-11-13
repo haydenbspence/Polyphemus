@@ -1,11 +1,20 @@
 # models.py
 
 from pydantic import BaseModel, Field, ValidationError
-from typing import Optional
+from typing import Optional, Type
 from datetime import datetime, date
+import pandas as pd
+import numpy as np
 
-def validate_dataframe(df):
-    df = df.apply(lambda row: Person(**row.to_dict()).model_dump(), axis=1)
+
+def validate_dataframe(df: pd.DataFrame, model: Type[BaseModel]) -> pd.DataFrame:
+    for index, row in df.iterrows():
+        try:
+            # Convert values to None if they are NaN or None
+            row_dict = {k: v if not pd.isna(v) and v is not None else None for k, v in row.to_dict().items()}
+            model(**row_dict)
+        except ValidationError as e:
+            print(f"Validation error for row {index}: {e}")
     return df
 
 class Person(BaseModel):
@@ -171,127 +180,128 @@ class ProcedureOccurrence(BaseModel):
     modifier_source_value: Optional[int] = Field(..., alias='MODIFIER_SOURCE_VALUE')
 
 class DeviceExposure(BaseModel):
-   device_exposure_id: int
-   person_id: int
-   device_concept_id: int
-   device_exposure_start_date: date
-   device_exposure_start_datetime: Optional[datetime]
-   device_exposure_end_date: date
-   device_exposure_end_datetime: Optional[datetime]
-   device_type_concept_id: int
-   unique_device_id: Optional[str]
-   quantity: Optional[int]
-   provider_id: Optional[int]
-   visit_occurrence_id: Optional[int]
-   visit_detail_id: Optional[int]
-   device_source_value: Optional[str]
-   device_source_concept_id: Optional[int]
+    device_exposure_id: Optional[int] = Field(None, alias='DEVICE_EXPOSURE_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    device_concept_id: Optional[int] = Field(None, alias='DEVICE_CONCEPT_ID')
+    device_exposure_start_date: Optional[datetime] = Field(None, alias='DEVICE_EXPOSURE_START_DATE')
+    device_exposure_start_datetime: Optional[datetime] = Field(None, alias='DEVICE_EXPOSURE_START_DATETIME')
+    device_exposure_end_date: Optional[datetime] = Field(None, alias='DEVICE_EXPOSURE_END_DATE')
+    device_exposure_end_datetime: Optional[datetime] = Field(None, alias='DEVICE_EXPOSURE_END_DATETIME')
+    device_type_concept_id: Optional[int] = Field(None, alias='DEVICE_TYPE_CONCEPT_ID')
+    unique_device_id: Optional[int] = Field(None, alias='UNIQUE_DEVICE_ID')
+    quantity: Optional[int] = Field(..., alias='QUANTITY')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    device_source_value: Optional[int] = Field(..., alias='DEVICE_SOURCE_VALUE')
+    device_source_concept_id: Optional[int] = Field(None, alias='DEVICE_SOURCE_CONCEPT_ID')
 
 class Measurement(BaseModel):
-   measurement_id: int
-   person_id: int
-   measurement_concept_id: int
-   measurement_date: date
-   measurement_datetime: Optional[datetime]
-   measurement_type_concept_id: int
-   operator_concept_id: Optional[int]
-   value_as_number: Optional[float]
-   value_as_concept_id: Optional[int]
-   unit_concept_id: Optional[int]
-   range_low: Optional[float]
-   range_high: Optional[float]
-   provider_id: Optional[int]
-   visit_occurrence_id: Optional[int]
-   visit_detail_id: Optional[int]
-   measurement_source_value: Optional[str]
-   measurement_source_concept_id: Optional[int]
-   unit_source_value: Optional[str]
-   value_source_value: Optional[str]
+    measurement_id: Optional[int] = Field(None, alias='MEASUREMENT_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    measurement_concept_id: Optional[int] = Field(None, alias='MEASUREMENT_CONCEPT_ID')
+    measurement_date: Optional[datetime] = Field(None, alias='MEASUREMENT_DATE')
+    measurement_datetime: Optional[datetime] = Field(None, alias='MEASUREMENT_DATETIME')
+    measurement_time: Optional[str] = Field(..., alias='MEASUREMENT_TIME')
+    measurement_type_concept_id: Optional[int] = Field(None, alias='MEASUREMENT_TYPE_CONCEPT_ID')
+    operator_concept_id: Optional[int] = Field(None, alias='OPERATOR_CONCEPT_ID')
+    value_as_number: Optional[int] = Field(..., alias='VALUE_AS_NUMBER')
+    value_as_concept_id: Optional[int] = Field(None, alias='VALUE_AS_CONCEPT_ID')
+    unit_concept_id: Optional[int] = Field(None, alias='UNIT_CONCEPT_ID')
+    range_low: Optional[int] = Field(..., alias='RANGE_LOW')
+    range_high: Optional[int] = Field(..., alias='RANGE_HIGH')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    measurement_source_value: Optional[str] = Field(..., alias='MEASUREMENT_SOURCE_VALUE')
+    measurement_source_concept_id: Optional[int] = Field(None, alias='MEASUREMENT_SOURCE_CONCEPT_ID')
+    unit_source_value: Optional[int] = Field(..., alias='UNIT_SOURCE_VALUE')
+    value_source_value: Optional[int] = Field(..., alias='VALUE_SOURCE_VALUE')
 
 class Observation(BaseModel):
-   observation_id: int
-   person_id: int
-   observation_concept_id: int
-   observation_date: date
-   observation_datetime: Optional[datetime]
-   observation_type_concept_id: int
-   value_as_number: Optional[float]
-   value_as_string: Optional[str]
-   value_as_concept_id: Optional[int]
-   qualifier_concept_id: Optional[int]
-   unit_concept_id: Optional[int]
-   provider_id: Optional[int]
-   visit_occurrence_id: Optional[int]
-   visit_detail_id: Optional[int]
-   observation_source_value: Optional[str]
-   observation_source_concept_id: Optional[int]
-   unit_source_value: Optional[str]
-   qualifier_source_value: Optional[str]
+    observation_id: Optional[int] = Field(None, alias='OBSERVATION_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    observation_concept_id: Optional[int] = Field(None, alias='OBSERVATION_CONCEPT_ID')
+    observation_date: Optional[datetime] = Field(None, alias='OBSERVATION_DATE')
+    observation_datetime: Optional[datetime] = Field(None, alias='OBSERVATION_DATETIME')
+    observation_type_concept_id: Optional[int] = Field(None, alias='OBSERVATION_TYPE_CONCEPT_ID')
+    value_as_number: Optional[int] = Field(..., alias='VALUE_AS_NUMBER')
+    value_as_string: Optional[int] = Field(..., alias='VALUE_AS_STRING')
+    value_as_concept_id: Optional[int] = Field(None, alias='VALUE_AS_CONCEPT_ID')
+    qualifier_concept_id: Optional[int] = Field(None, alias='QUALIFIER_CONCEPT_ID')
+    unit_concept_id: Optional[int] = Field(None, alias='UNIT_CONCEPT_ID')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    observation_source_value: Optional[str] = Field(..., alias='OBSERVATION_SOURCE_VALUE')
+    observation_source_concept_id: Optional[int] = Field(None, alias='OBSERVATION_SOURCE_CONCEPT_ID')
+    unit_source_value: Optional[int] = Field(..., alias='UNIT_SOURCE_VALUE')
+    qualifier_source_value: Optional[int] = Field(..., alias='QUALIFIER_SOURCE_VALUE')
 
 class Death(BaseModel):
-    person_id: int
-    death_date: date
-    death_datetime: Optional[datetime]
-    death_type_concept_id: int
-    cause_concept_id: Optional[int]
-    cause_source_value: Optional[str]
-    cause_source_concept_id: Optional[int]
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    death_date: Optional[datetime] = Field(None, alias='DEATH_DATE')
+    death_datetime: Optional[datetime] = Field(None, alias='DEATH_DATETIME')
+    death_type_concept_id: Optional[int] = Field(None, alias='DEATH_TYPE_CONCEPT_ID')
+    cause_concept_id: Optional[int] = Field(None, alias='CAUSE_CONCEPT_ID')
+    cause_source_value: Optional[int] = Field(..., alias='CAUSE_SOURCE_VALUE')
+    cause_source_concept_id: Optional[int] = Field(None, alias='CAUSE_SOURCE_CONCEPT_ID')
 
 class Note(BaseModel):
-    note_id: int
-    person_id: int
-    note_date: date
-    note_datetime: Optional[datetime]
-    note_type_concept_id: int
-    note_class_concept_id: int
-    note_title: Optional[str]
-    note_text: Optional[str]
-    encoding_concept_id: Optional[int]
-    language_concept_id: Optional[int]
-    provider_id: Optional[int]
-    visit_occurrence_id: Optional[int]
-    visit_detail_id: Optional[int]
-    note_source_value: Optional[str]
+    note_id: Optional[int] = Field(None, alias='NOTE_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    note_date: Optional[datetime] = Field(None, alias='NOTE_DATE')
+    note_datetime: Optional[datetime] = Field(None, alias='NOTE_DATETIME')
+    note_type_concept_id: Optional[int] = Field(None, alias='NOTE_TYPE_CONCEPT_ID')
+    note_class_concept_id: Optional[int] = Field(None, alias='NOTE_CLASS_CONCEPT_ID')
+    note_title: Optional[int] = Field(..., alias='NOTE_TITLE')
+    note_text: Optional[int] = Field(..., alias='NOTE_TEXT')
+    encoding_concept_id: Optional[int] = Field(None, alias='ENCODING_CONCEPT_ID')
+    language_concept_id: Optional[int] = Field(None, alias='LANGUAGE_CONCEPT_ID')
+    provider_id: Optional[int] = Field(None, alias='PROVIDER_ID')
+    visit_occurrence_id: Optional[int] = Field(None, alias='VISIT_OCCURRENCE_ID')
+    visit_detail_id: Optional[int] = Field(None, alias='VISIT_DETAIL_ID')
+    note_source_value: Optional[int] = Field(..., alias='NOTE_SOURCE_VALUE')
 
 class NoteNlp(BaseModel):
-    note_nlp_id: int
-    note_id: int
-    section_concept_id: int
-    snippet: Optional[str]
-    offset: Optional[int]
-    lexical_variant: Optional[str]
-    note_nlp_concept_id: Optional[int]
-    note_nlp_source_concept_id: Optional[int]
-    nlp_system: Optional[str]
-    nlp_date: Optional[date]
-    nlp_datetime: Optional[datetime]
-    term_exists: Optional[str]
-    term_temporal: Optional[str]
-    term_modifiers: Optional[str]
+    note_nlp_id: Optional[int] = Field(None, alias='NOTE_NLP_ID') # A unique identifier for the NLP record. 
+    note_id: Optional[int] = Field(None, alias='NOTE_ID') # This is the NOTE_ID for the NOTE record the NLP record is associated to. 
+    section_concept_id: Optional[int] = Field(None, alias='SECTION_CONCEPT_ID') # The SECTION_CONCEPT_ID should be used to represent the note section contained in the NOTE_NLP record. These concepts can be found as parts of document panels and are based on the type of note written, i.e. a discharge summary. These panels can be found as concepts with the relationship ‘Subsumes’ to CONCEPT_ID 45875957.
+    snippet: Optional[int] = Field(..., alias='SNIPPET')
+    offset: Optional[int] = Field(..., alias='OFFSET')
+    lexical_variant: Optional[int] = Field(..., alias='LEXICAL_VARIANT')
+    note_nlp_concept_id: Optional[int] = Field(None, alias='NOTE_NLP_CONCEPT_ID')
+    note_nlp_source_concept_id: Optional[int] = Field(None, alias='NOTE_NLP_SOURCE_CONCEPT_ID')
+    nlp_system: Optional[int] = Field(..., alias='NLP_SYSTEM')
+    nlp_date: Optional[datetime] = Field(None, alias='NLP_DATE')
+    nlp_datetime: Optional[datetime] = Field(None, alias='NLP_DATETIME')
+    term_exists: Optional[int] = Field(..., alias='TERM_EXISTS')
+    term_temporal: Optional[int] = Field(..., alias='TERM_TEMPORAL')
+    term_modifiers: Optional[int] = Field(..., alias='TERM_MODIFIERS')
 
 class Specimen(BaseModel):
-    specimen_id: int
-    person_id: int
-    specimen_concept_id: int
-    specimen_type_concept_id: int
-    specimen_date: date
-    specimen_datetime: Optional[datetime]
-    quantity: Optional[float]
-    unit_concept_id: Optional[int]
-    anatomic_site_concept_id: Optional[int]
-    disease_status_concept_id: Optional[int]
-    specimen_source_id: Optional[str]
-    specimen_source_value: Optional[str]
-    unit_source_value: Optional[str]
-    anatomic_site_source_value: Optional[str]
-    disease_status_source_value: Optional[str]
+    specimen_id: Optional[int] = Field(None, alias='SPECIMEN_ID')
+    person_id: Optional[int] = Field(None, alias='PERSON_ID')
+    specimen_concept_id: Optional[int] = Field(None, alias='SPECIMEN_CONCEPT_ID')
+    specimen_type_concept_id: Optional[int] = Field(None, alias='SPECIMEN_TYPE_CONCEPT_ID')
+    specimen_date: Optional[datetime] = Field(None, alias='SPECIMEN_DATE')
+    specimen_datetime: Optional[datetime] = Field(None, alias='SPECIMEN_DATETIME')
+    quantity: Optional[int] = Field(..., alias='QUANTITY')
+    unit_concept_id: Optional[int] = Field(None, alias='UNIT_CONCEPT_ID')
+    anatomic_site_concept_id: Optional[int] = Field(None, alias='ANATOMIC_SITE_CONCEPT_ID')
+    disease_status_concept_id: Optional[int] = Field(None, alias='DISEASE_STATUS_CONCEPT_ID')
+    specimen_source_id: Optional[int] = Field(None, alias='SPECIMEN_SOURCE_ID')
+    specimen_source_value: Optional[int] = Field(..., alias='SPECIMEN_SOURCE_VALUE')
+    unit_source_value: Optional[int] = Field(..., alias='UNIT_SOURCE_VALUE')
+    anatomic_site_source_value: Optional[int] = Field(..., alias='ANATOMIC_SITE_SOURCE_VALUE')
+    disease_status_source_value: Optional[int] = Field(..., alias='DISEASE_STATUS_SOURCE_VALUE')
 
 class FactRelationship(BaseModel):
-    domain_concept_id_1: int
-    fact_id_1: int
-    domain_concept_id_2: int
-    fact_id_2: int
-    relationship_concept_id: int
+    domain_concept_id_1: Optional[int] = Field(..., alias='DOMAIN_CONCEPT_ID_1')
+    fact_id_1: Optional[int] = Field(..., alias='FACT_ID_1')
+    domain_concept_id_2: Optional[int] = Field(..., alias='DOMAIN_CONCEPT_ID_2')
+    fact_id_2: Optional[int] = Field(..., alias='FACT_ID_2')
+    relationship_concept_id: Optional[int] = Field(None, alias='RELATIONSHIP_CONCEPT_ID')
 
 class Location(BaseModel):
     location_id: int
