@@ -5,6 +5,11 @@ import database
 app = FastAPI()
 schema_name = 'cdm'
 
+@app.get("/tables/")
+async def tables():
+    table_list = database.list_tables()
+    return table_list
+
 @app.post("/person/")
 async def create_person(person: Person):
     database.insert_person(person)

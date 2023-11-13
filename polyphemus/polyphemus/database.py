@@ -1,6 +1,8 @@
 import os
 import toml
+import json
 import ibis
+import duckdb
 
 # Load the TOML file
 with open('config.toml', 'r') as f:
@@ -12,9 +14,13 @@ for key, value in config.items():
 
 from models import Person
 
+def connect_database(conn_str):
+    conn = ibis.duckdb.connect(f'{conn_str}')
+    return conn
+
 def insert_person(person: Person):
 
-    conn = ibis.duckdb.connect('md:Eunomia')
+    connect_database('md:Eunomia')
 
     conn.execute("INSERT INTO person VALUES (?, ?, ?, ?, ?, ?)",
                  [person.person_id, person.gender_concept_id, person.year_of_birth,
@@ -22,9 +28,9 @@ def insert_person(person: Person):
 
 def get_person(person_id: int):
 
-    conn = ibis.duckdb.connect('md:Eunomia')
+    connect_database('md:Eunomia')
 
-    result = conn.execute("SELECT * FROM person WHERE person_id = ?", [person_id]).fetchone()
+    result = conn.execute("SELECT * FROM PERSON WHERE person_id = ?", [person_id]).fetchone()
     
     if result:
         return {
@@ -37,3 +43,7 @@ def get_person(person_id: int):
         }
     else:
         return
+
+def list_tables():
+    conn = connect_database('md:Eunomia')
+    return conn.list_tables()
